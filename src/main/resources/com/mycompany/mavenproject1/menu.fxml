@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.mycompany.mavenproject1.controller.MenuController"
+            prefHeight="680.0" prefWidth="950.0" styleClass="root">
+    
+    <!-- Topo com Status do Jogador -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="card-pane">
+            <BorderPane.margin>
+                <Insets bottom="15.0" left="20.0" right="20.0" top="20.0" />
+            </BorderPane.margin>
+            <children>
+                <Label text="👨‍🍳 Chef:" styleClass="label-destaque" />
+                <Label fx:id="lblNomeChef" text="Chef Henrique" styleClass="label-destaque" style="-fx-text-fill: #eccc68;" />
+                <Label fx:id="lblNivel" text="Nível 1" style="-fx-text-fill: #a4b0be; -fx-font-weight: bold;" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label text="💰 Moedas:" styleClass="label-destaque" />
+                <Label fx:id="lblMoedas" text="50" styleClass="label-moedas" />
+                <Label text="⭐ Reputação:" styleClass="label-destaque" />
+                <Label fx:id="lblReputacao" text="0" styleClass="label-reputacao" />
+            </children>
+        </HBox>
+    </top>
+
+    <!-- Centro: Menu Principal de Botões -->
+    <center>
+        <VBox alignment="CENTER" spacing="16.0" maxWidth="480.0">
+            <children>
+                <Label text="🍽️ MESTRE DA COZINHA" styleClass="titulo-principal" />
+                <Label text="Desafio Gastronômico e Gestão de Restaurante" styleClass="subtitulo" />
+
+                <!-- Configuração rápida do Nome do Chef -->
+                <HBox alignment="CENTER" spacing="10.0" style="-fx-padding: 10 0 10 0;">
+                    <children>
+                        <TextField fx:id="txtNomeChef" promptText="Digite seu nome de Chef..." prefWidth="250.0"
+                                   style="-fx-background-color: #2f3542; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 8px;" />
+                        <Button text="Alterar" onAction="#alterarNomeChef" styleClass="btn-info" />
+                    </children>
+                </HBox>
+
+                <!-- Botões Obrigatórios e de Gestão -->
+                <Button text="▶ Iniciar Turno (Jogar)" onAction="#abrirGameplay"
+                        prefWidth="380.0" prefHeight="48.0" styleClass="btn-primario" />
+
+                <Button text="🔨 Melhorias do Restaurante (Upgrades)" onAction="#abrirUpgrades"
+                        prefWidth="380.0" prefHeight="42.0" styleClass="btn-sucesso" />
+
+                <Button text="🛒 Loja de Ingredientes e Utensílios" onAction="#abrirLoja"
+                        prefWidth="380.0" prefHeight="42.0" styleClass="btn-alerta" />
+
+                <Button text="📦 Despensa e Inventário (Janela Separada)" onAction="#abrirInventario"
+                        prefWidth="380.0" prefHeight="42.0" styleClass="btn-info" />
+
+                <Button fx:id="btnBoss" text="🔒 Boss: O Crítico Gastronômico" onAction="#abrirBoss"
+                        prefWidth="380.0" prefHeight="42.0" />
+
+                <Button text="🏆 Ranking de Chefs" onAction="#abrirRanking"
+                        prefWidth="380.0" prefHeight="42.0" />
+
+                <Button text="ℹ️ Créditos" onAction="#abrirCreditos"
+                        prefWidth="380.0" prefHeight="42.0" />
+
+                <Button text="❌ Encerrar Jogo" onAction="#encerrarJogo"
+                        prefWidth="380.0" prefHeight="38.0" style="-fx-background-color: #3d4554;" />
+            </children>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER" style="-fx-padding: 15px;">
+            <children>
+                <Label text="IFMS - Tópicos em Linguagem de Programação 2 | Desenvolvido por Henrique Jara Palma"
+                       style="-fx-text-fill: #747d8c; -fx-font-size: 12px;" />
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

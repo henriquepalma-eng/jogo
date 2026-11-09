@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.mycompany.mavenproject1.controller.UpgradesController"
+            prefHeight="680.0" prefWidth="950.0" styleClass="root">
+    
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="card-pane">
+            <BorderPane.margin>
+                <Insets bottom="15.0" left="20.0" right="20.0" top="20.0" />
+            </BorderPane.margin>
+            <children>
+                <VBox spacing="4.0">
+                    <Label text="🔨 Evolução Permanente do Restaurante" styleClass="titulo-principal" style="-fx-font-size: 24px;" />
+                    <Label text="Gaste seus Pontos de Reputação acumulados nas runs para melhorar suas habilidades." styleClass="subtitulo" />
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <Label text="⭐ Reputação Disponível:" styleClass="label-destaque" />
+                <Label fx:id="lblPontosDisponiveis" text="0" styleClass="label-reputacao" style="-fx-font-size: 22px;" />
+            </children>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="15.0">
+            <BorderPane.margin>
+                <Insets bottom="15.0" left="20.0" right="20.0" />
+            </BorderPane.margin>
+            <children>
+                <TableView fx:id="tabelaUpgrades" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colNome" text="Melhoria" prefWidth="220.0" />
+                        <TableColumn fx:id="colDescricao" text="Efeito Permanente" prefWidth="410.0" />
+                        <TableColumn fx:id="colNivelAtual" text="Nível Atual" prefWidth="120.0" />
+                        <TableColumn fx:id="colCustoProximo" text="Custo em Pontos" prefWidth="140.0" />
+                    </columns>
+                </TableView>
+                <Label fx:id="lblStatusUpgrade" text="Selecione um upgrade na tabela e clique em Evoluir."
+                       style="-fx-text-fill: #eccc68; -fx-font-size: 14px; -fx-font-weight: bold;" />
+            </children>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="15.0">
+            <BorderPane.margin>
+                <Insets bottom="20.0" left="20.0" right="20.0" />
+            </BorderPane.margin>
+            <children>
+                <Button text="⭐ Evoluir Melhoria Selecionada" onAction="#evoluirUpgradeSelecionado"
+                        styleClass="btn-sucesso" prefHeight="45.0" prefWidth="270.0" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button text="🏠 Voltar ao Menu Principal" onAction="#voltarAoMenu"
+                        style="-fx-background-color: #57606f;" prefHeight="45.0" prefWidth="220.0" />
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

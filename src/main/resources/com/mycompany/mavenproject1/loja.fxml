@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.mycompany.mavenproject1.controller.LojaController"
+            prefHeight="680.0" prefWidth="950.0" styleClass="root">
+    
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="card-pane">
+            <BorderPane.margin>
+                <Insets bottom="15.0" left="20.0" right="20.0" top="20.0" />
+            </BorderPane.margin>
+            <children>
+                <VBox spacing="4.0">
+                    <Label text="🛒 Mercado de Suprimentos do Chef" styleClass="titulo-principal" style="-fx-font-size: 24px;" />
+                    <Label text="Adquira consumíveis e utensílios usando as moedas obtidas nos turnos de trabalho." styleClass="subtitulo" />
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <Label text="💰 Suas Moedas:" styleClass="label-destaque" />
+                <Label fx:id="lblMoedasDisponiveis" text="0" styleClass="label-moedas" style="-fx-font-size: 22px;" />
+            </children>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="15.0">
+            <BorderPane.margin>
+                <Insets bottom="15.0" left="20.0" right="20.0" />
+            </BorderPane.margin>
+            <children>
+                <TableView fx:id="tabelaLoja" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colNome" text="Produto" prefWidth="220.0" />
+                        <TableColumn fx:id="colTipo" text="Categoria" prefWidth="130.0" />
+                        <TableColumn fx:id="colPreco" text="Preço (Moedas)" prefWidth="140.0" />
+                        <TableColumn fx:id="colDescricao" text="Efeito e Vantagem Tática" prefWidth="400.0" />
+                    </columns>
+                </TableView>
+                <Label fx:id="lblStatusLoja" text="Selecione um item da vitrine e clique em Comprar Produto."
+                       style="-fx-text-fill: #eccc68; -fx-font-size: 14px; -fx-font-weight: bold;" />
+            </children>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="15.0">
+            <BorderPane.margin>
+                <Insets bottom="20.0" left="20.0" right="20.0" />
+            </BorderPane.margin>
+            <children>
+                <Button text="🛍️ Comprar Produto Selecionado" onAction="#comprarItemSelecionado"
+                        styleClass="btn-alerta" prefHeight="45.0" prefWidth="270.0" />
+                <Button text="📦 Ver Despensa (Stage)" onAction="#abrirInventario"
+                        styleClass="btn-info" prefHeight="45.0" prefWidth="220.0" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button text="🏠 Voltar ao Menu Principal" onAction="#voltarAoMenu"
+                        style="-fx-background-color: #57606f;" prefHeight="45.0" prefWidth="200.0" />
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

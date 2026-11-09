@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.mycompany.mavenproject1.controller.RankingController"
+            prefHeight="680.0" prefWidth="950.0" styleClass="root">
+    
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="card-pane">
+            <BorderPane.margin>
+                <Insets bottom="15.0" left="20.0" right="20.0" top="20.0" />
+            </BorderPane.margin>
+            <children>
+                <VBox spacing="4.0">
+                    <Label text="🏆 Hall da Fama - Ranking de Chefs" styleClass="titulo-principal" style="-fx-font-size: 24px;" />
+                    <Label text="Consulte os melhores registros salvos no PostgreSQL e exporte para seu computador." styleClass="subtitulo" />
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <Button text="🔄 Atualizar Dados" onAction="#carregarRanking" styleClass="btn-info" />
+            </children>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="12.0">
+            <BorderPane.margin>
+                <Insets bottom="15.0" left="20.0" right="20.0" />
+            </BorderPane.margin>
+            <children>
+                <TableView fx:id="tabelaRanking" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colJogador" text="Chef / Jogador" prefWidth="230.0" />
+                        <TableColumn fx:id="colPontuacao" text="Pontos" prefWidth="120.0" />
+                        <TableColumn fx:id="colClientes" text="Clientes Atendidos" prefWidth="140.0" />
+                        <TableColumn fx:id="colMoedas" text="Moedas Ganhas" prefWidth="130.0" />
+                        <TableColumn fx:id="colDerrotouBoss" text="Venceu o Boss" prefWidth="130.0" />
+                        <TableColumn fx:id="colData" text="Data da Partida" prefWidth="150.0" />
+                    </columns>
+                </TableView>
+                <Label fx:id="lblStatusExportacao" text="Dados carregados diretamente do PostgreSQL via JDBC."
+                       style="-fx-text-fill: #eccc68; -fx-font-weight: bold;" />
+            </children>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="15.0">
+            <BorderPane.margin>
+                <Insets bottom="20.0" left="20.0" right="20.0" />
+            </BorderPane.margin>
+            <children>
+                <Button text="📊 Baixar / Exportar em CSV" onAction="#exportarCSV"
+                        styleClass="btn-sucesso" prefHeight="45.0" prefWidth="240.0" />
+                <Button text="📄 Baixar / Exportar em TXT" onAction="#exportarTXT"
+                        styleClass="btn-alerta" prefHeight="45.0" prefWidth="240.0" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button text="🏠 Voltar ao Menu Principal" onAction="#voltarAoMenu"
+                        style="-fx-background-color: #57606f;" prefHeight="45.0" prefWidth="200.0" />
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,174 @@
+/* ========================================================
+   MESTRE DA COZINHA - FOLHA DE ESTILOS CSS
+   ======================================================== */
+
+.root {
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-background-color: #1e272e;
+}
+
+/* Painéis e Caixas de Conteúdo */
+.card-pane {
+    -fx-background-color: #2f3542;
+    -fx-background-radius: 12px;
+    -fx-padding: 16px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 8, 0, 0, 4);
+}
+
+.card-cliente {
+    -fx-background-color: #3d4554;
+    -fx-background-radius: 10px;
+    -fx-padding: 12px;
+    -fx-border-color: #57606f;
+    -fx-border-radius: 10px;
+    -fx-border-width: 1.5px;
+}
+
+/* Títulos e Labels */
+.titulo-principal {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #eccc68;
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.5), 4, 0, 0, 2);
+}
+
+.subtitulo {
+    -fx-font-size: 16px;
+    -fx-text-fill: #a4b0be;
+}
+
+.label-destaque {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.label-moedas {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffa502;
+}
+
+.label-reputacao {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2ed573;
+}
+
+/* Botões Estilizados */
+.button {
+    -fx-background-radius: 8px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 18px;
+    -fx-cursor: hand;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #57606f;
+}
+
+.button:hover {
+    -fx-opacity: 0.9;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 6, 0, 0, 2);
+}
+
+.btn-primario {
+    -fx-background-color: #ff4757;
+    -fx-font-size: 16px;
+}
+
+.btn-sucesso {
+    -fx-background-color: #2ed573;
+    -fx-text-fill: #1e272e;
+}
+
+.btn-alerta {
+    -fx-background-color: #ffa502;
+    -fx-text-fill: #1e272e;
+}
+
+.btn-info {
+    -fx-background-color: #1e90ff;
+}
+
+.btn-ingrediente {
+    -fx-background-color: #485460;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 13px;
+    -fx-padding: 8px 12px;
+}
+.btn-ingrediente:hover {
+    -fx-background-color: #ff6b81;
+}
+
+/* Tabelas */
+.table-view {
+    -fx-background-color: #2f3542;
+    -fx-background-radius: 8px;
+    -fx-border-color: #57606f;
+    -fx-border-radius: 8px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #1e272e;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: #1e272e;
+    -fx-border-color: #57606f;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #eccc68;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell {
+    -fx-background-color: #2f3542;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: transparent transparent #3d4554 transparent;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #282e3a;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #ff4757;
+}
+
+.table-cell {
+    -fx-text-fill: #ffffff;
+    -fx-alignment: CENTER-LEFT;
+    -fx-padding: 8px;
+}
+
+/* ListViews */
+.list-view {
+    -fx-background-color: #1e272e;
+    -fx-background-radius: 6px;
+    -fx-border-color: #57606f;
+    -fx-border-radius: 6px;
+}
+
+.list-cell {
+    -fx-background-color: #1e272e;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-padding: 6px;
+}
+.list-cell:odd {
+    -fx-background-color: #282e3a;
+}
+.list-cell:selected {
+    -fx-background-color: #ff4757;
+}
+
+/* Barra de Progresso */
+.progress-bar > .track {
+    -fx-background-color: #1e272e;
+    -fx-background-radius: 6px;
+}
+.progress-bar > .bar {
+    -fx-background-radius: 6px;
+    -fx-padding: 4px;
+}

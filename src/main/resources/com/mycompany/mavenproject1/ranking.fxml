@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -12,7 +14,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.mycompany.mavenproject1.controller.RankingController"
-            prefHeight="680.0" prefWidth="950.0" styleClass="root">
+            prefHeight="700.0" prefWidth="980.0" styleClass="root">
     
     <top>
         <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="card-pane">
@@ -20,7 +22,12 @@
                 <Insets bottom="15.0" left="20.0" right="20.0" top="20.0" />
             </BorderPane.margin>
             <children>
-                <VBox spacing="4.0">
+                <ImageView fitHeight="48.0" fitWidth="48.0" preserveRatio="true">
+                    <image>
+                        <Image url="@assets/trofeu.png" />
+                    </image>
+                </ImageView>
+                <VBox spacing="2.0">
                     <Label text="🏆 Hall da Fama - Ranking de Chefs" styleClass="titulo-principal" style="-fx-font-size: 24px;" />
                     <Label text="Consulte os melhores registros salvos no PostgreSQL e exporte para seu computador." styleClass="subtitulo" />
                 </VBox>
@@ -43,7 +50,7 @@
                         <TableColumn fx:id="colClientes" text="Clientes Atendidos" prefWidth="140.0" />
                         <TableColumn fx:id="colMoedas" text="Moedas Ganhas" prefWidth="130.0" />
                         <TableColumn fx:id="colDerrotouBoss" text="Venceu o Boss" prefWidth="130.0" />
-                        <TableColumn fx:id="colData" text="Data da Partida" prefWidth="150.0" />
+                        <TableColumn fx:id="colData" text="Data da Partida" prefWidth="170.0" />
                     </columns>
                 </TableView>
                 <Label fx:id="lblStatusExportacao" text="Dados carregados diretamente do PostgreSQL via JDBC."

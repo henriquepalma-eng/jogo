@@ -3,44 +3,54 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.mycompany.mavenproject1.controller.CreditosController"
-            prefHeight="680.0" prefWidth="950.0" styleClass="root">
+            prefHeight="700.0" prefWidth="980.0" styleClass="root">
     
     <center>
-        <VBox alignment="CENTER" spacing="22.0" maxWidth="600.0">
+        <VBox alignment="CENTER" spacing="16.0" maxWidth="650.0">
             <children>
+                <!-- Arte de Encerramento e Agradecimento -->
+                <ImageView fitHeight="160.0" fitWidth="360.0" preserveRatio="true">
+                    <image>
+                        <Image url="@assets/creditos_arte.png" />
+                    </image>
+                </ImageView>
+
                 <Label text="ℹ️ CRÉDITOS DO PROJETO" styleClass="titulo-principal" />
 
-                <VBox spacing="14.0" styleClass="card-pane" alignment="CENTER_LEFT">
+                <VBox spacing="10.0" styleClass="card-pane" alignment="CENTER_LEFT">
                     <children>
-                        <VBox spacing="4.0">
-                            <Label text="🎮 Nome do Jogo:" styleClass="label-destaque" style="-fx-text-fill: #eccc68;" />
-                            <Label fx:id="lblNomeJogo" text="Mestre da Cozinha" style="-fx-text-fill: white; -fx-font-size: 16px;" />
-                        </VBox>
+                        <HBox spacing="10.0" alignment="CENTER_LEFT">
+                            <Label text="🎮 Nome do Jogo:" styleClass="label-destaque" style="-fx-text-fill: #eccc68; -fx-min-width: 140px;" />
+                            <Label fx:id="lblNomeJogo" text="Mestre da Cozinha" style="-fx-text-fill: white; -fx-font-size: 15px;" />
+                        </HBox>
 
-                        <VBox spacing="4.0">
-                            <Label text="👨‍💻 Desenvolvedor / Dupla:" styleClass="label-destaque" style="-fx-text-fill: #eccc68;" />
-                            <Label fx:id="lblDesenvolvedor" text="Henrique Jara Palma" style="-fx-text-fill: white; -fx-font-size: 16px;" />
-                        </VBox>
+                        <HBox spacing="10.0" alignment="CENTER_LEFT">
+                            <Label text="👨‍💻 Desenvolvedor:" styleClass="label-destaque" style="-fx-text-fill: #eccc68; -fx-min-width: 140px;" />
+                            <Label fx:id="lblDesenvolvedor" text="Henrique Jara Palma" style="-fx-text-fill: white; -fx-font-size: 15px;" />
+                        </HBox>
 
-                        <VBox spacing="4.0">
-                            <Label text="📚 Disciplina:" styleClass="label-destaque" style="-fx-text-fill: #eccc68;" />
-                            <Label fx:id="lblDisciplina" text="Tópicos em Linguagem de Programação 2" style="-fx-text-fill: white; -fx-font-size: 16px;" />
-                        </VBox>
+                        <HBox spacing="10.0" alignment="CENTER_LEFT">
+                            <Label text="📚 Disciplina:" styleClass="label-destaque" style="-fx-text-fill: #eccc68; -fx-min-width: 140px;" />
+                            <Label fx:id="lblDisciplina" text="Tópicos em Linguagem de Programação 2" style="-fx-text-fill: white; -fx-font-size: 15px;" />
+                        </HBox>
 
-                        <VBox spacing="4.0">
-                            <Label text="🏛️ Instituição de Ensino:" styleClass="label-destaque" style="-fx-text-fill: #eccc68;" />
-                            <Label fx:id="lblInstituicao" text="IFMS - Instituto Federal de Mato Grosso do Sul" style="-fx-text-fill: white; -fx-font-size: 16px;" />
-                        </VBox>
+                        <HBox spacing="10.0" alignment="CENTER_LEFT">
+                            <Label text="🏛️ Instituição:" styleClass="label-destaque" style="-fx-text-fill: #eccc68; -fx-min-width: 140px;" />
+                            <Label fx:id="lblInstituicao" text="IFMS - Instituto Federal de Mato Grosso do Sul" style="-fx-text-fill: white; -fx-font-size: 15px;" />
+                        </HBox>
 
                         <VBox spacing="4.0">
                             <Label text="⚙️ Tecnologias e Padrões Utilizados:" styleClass="label-destaque" style="-fx-text-fill: #eccc68;" />
                             <Label fx:id="lblTecnologias" text="Java 21, JavaFX 21 (FXML), PostgreSQL 16, JDBC, Padrão MVC e DAO"
-                                   style="-fx-text-fill: #2ed573; -fx-font-size: 15px;" wrapText="true" />
+                                   style="-fx-text-fill: #2ed573; -fx-font-size: 14px;" wrapText="true" />
                         </VBox>
                     </children>
                 </VBox>

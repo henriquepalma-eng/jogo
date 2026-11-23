@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -12,7 +14,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.mycompany.mavenproject1.controller.UpgradesController"
-            prefHeight="680.0" prefWidth="950.0" styleClass="root">
+            prefHeight="700.0" prefWidth="980.0" styleClass="root">
     
     <top>
         <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="card-pane">
@@ -20,12 +22,22 @@
                 <Insets bottom="15.0" left="20.0" right="20.0" top="20.0" />
             </BorderPane.margin>
             <children>
-                <VBox spacing="4.0">
+                <ImageView fitHeight="42.0" fitWidth="42.0" preserveRatio="true">
+                    <image>
+                        <Image url="@assets/up_fogao.png" />
+                    </image>
+                </ImageView>
+                <VBox spacing="2.0">
                     <Label text="🔨 Evolução Permanente do Restaurante" styleClass="titulo-principal" style="-fx-font-size: 24px;" />
                     <Label text="Gaste seus Pontos de Reputação acumulados nas runs para melhorar suas habilidades." styleClass="subtitulo" />
                 </VBox>
                 <Region HBox.hgrow="ALWAYS" />
-                <Label text="⭐ Reputação Disponível:" styleClass="label-destaque" />
+                <ImageView fitHeight="32.0" fitWidth="32.0" preserveRatio="true">
+                    <image>
+                        <Image url="@assets/estrela.png" />
+                    </image>
+                </ImageView>
+                <Label text="Reputação:" styleClass="label-destaque" />
                 <Label fx:id="lblPontosDisponiveis" text="0" styleClass="label-reputacao" style="-fx-font-size: 22px;" />
             </children>
         </HBox>
@@ -37,12 +49,51 @@
                 <Insets bottom="15.0" left="20.0" right="20.0" />
             </BorderPane.margin>
             <children>
+                <!-- Pré-visualização dos 3 Upgrades com suas artes pixel art -->
+                <HBox spacing="15.0" alignment="CENTER">
+                    <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="card-cliente" HBox.hgrow="ALWAYS">
+                        <ImageView fitHeight="45.0" fitWidth="45.0" preserveRatio="true">
+                            <image>
+                                <Image url="@assets/up_fogao.png" />
+                            </image>
+                        </ImageView>
+                        <VBox spacing="2.0">
+                            <Label text="Fogão Industrial" styleClass="label-destaque" style="-fx-font-size: 13px;" />
+                            <Label text="+15% velocidade por nível" style="-fx-text-fill: #a4b0be; -fx-font-size: 11px;" />
+                        </VBox>
+                    </HBox>
+
+                    <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="card-cliente" HBox.hgrow="ALWAYS">
+                        <ImageView fitHeight="45.0" fitWidth="45.0" preserveRatio="true">
+                            <image>
+                                <Image url="@assets/up_gorjeta.png" />
+                            </image>
+                        </ImageView>
+                        <VBox spacing="2.0">
+                            <Label text="Gorjeta Extra" styleClass="label-destaque" style="-fx-font-size: 13px;" />
+                            <Label text="+25% gorjeta por nível" style="-fx-text-fill: #a4b0be; -fx-font-size: 11px;" />
+                        </VBox>
+                    </HBox>
+
+                    <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="card-cliente" HBox.hgrow="ALWAYS">
+                        <ImageView fitHeight="45.0" fitWidth="45.0" preserveRatio="true">
+                            <image>
+                                <Image url="@assets/up_mesas.png" />
+                            </image>
+                        </ImageView>
+                        <VBox spacing="2.0">
+                            <Label text="Expansão do Salão" styleClass="label-destaque" style="-fx-font-size: 13px;" />
+                            <Label text="Mais clientes e mesas" style="-fx-text-fill: #a4b0be; -fx-font-size: 11px;" />
+                        </VBox>
+                    </HBox>
+                </HBox>
+
                 <TableView fx:id="tabelaUpgrades" VBox.vgrow="ALWAYS">
                     <columns>
                         <TableColumn fx:id="colNome" text="Melhoria" prefWidth="220.0" />
-                        <TableColumn fx:id="colDescricao" text="Efeito Permanente" prefWidth="410.0" />
+                        <TableColumn fx:id="colDescricao" text="Efeito Permanente" prefWidth="430.0" />
                         <TableColumn fx:id="colNivelAtual" text="Nível Atual" prefWidth="120.0" />
-                        <TableColumn fx:id="colCustoProximo" text="Custo em Pontos" prefWidth="140.0" />
+                        <TableColumn fx:id="colCustoProximo" text="Custo em Pontos" prefWidth="150.0" />
                     </columns>
                 </TableView>
                 <Label fx:id="lblStatusUpgrade" text="Selecione um upgrade na tabela e clique em Evoluir."

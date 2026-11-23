@@ -4,10 +4,12 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Classe Principal da Aplicação JavaFX.
@@ -25,7 +27,15 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         primaryStage = stage;
         primaryStage.setTitle("Mestre da Cozinha - IFMS");
-        scene = new Scene(loadFXML("menu"), 950, 680);
+
+        // Ícone da Aplicação Retrô
+        try (InputStream iconStream = App.class.getResourceAsStream("assets/icon.png")) {
+            if (iconStream != null) {
+                stage.getIcons().add(new Image(iconStream));
+            }
+        } catch (Exception ignored) {}
+
+        scene = new Scene(loadFXML("menu"), 980, 700);
 
         // Aplica o tema CSS se existir
         String css = App.class.getResource("styles.css") != null ? App.class.getResource("styles.css").toExternalForm() : null;
@@ -34,8 +44,8 @@ public class App extends Application {
         }
 
         stage.setScene(scene);
-        stage.setMinWidth(900);
-        stage.setMinHeight(640);
+        stage.setMinWidth(960);
+        stage.setMinHeight(680);
         stage.show();
     }
 
@@ -54,7 +64,14 @@ public class App extends Application {
                 inventarioStage.setTitle("Despensa e Inventário do Chef");
                 inventarioStage.initModality(Modality.APPLICATION_MODAL);
                 inventarioStage.initOwner(primaryStage);
-                Scene invScene = new Scene(loadFXML("inventario"), 650, 480);
+
+                try (InputStream iconStream = App.class.getResourceAsStream("assets/icon.png")) {
+                    if (iconStream != null) {
+                        inventarioStage.getIcons().add(new Image(iconStream));
+                    }
+                } catch (Exception ignored) {}
+
+                Scene invScene = new Scene(loadFXML("inventario"), 680, 500);
                 String css = App.class.getResource("styles.css") != null ? App.class.getResource("styles.css").toExternalForm() : null;
                 if (css != null) {
                     invScene.getStylesheets().add(css);

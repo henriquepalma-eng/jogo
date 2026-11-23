@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -12,18 +14,25 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.mycompany.mavenproject1.controller.InventarioController"
-            prefHeight="480.0" prefWidth="650.0" styleClass="root">
+            prefHeight="500.0" prefWidth="680.0" styleClass="root">
     
     <top>
-        <VBox spacing="6.0" styleClass="card-pane">
+        <HBox alignment="CENTER_LEFT" spacing="15.0" styleClass="card-pane">
             <BorderPane.margin>
                 <Insets bottom="10.0" left="15.0" right="15.0" top="15.0" />
             </BorderPane.margin>
             <children>
-                <Label text="📦 Despensa e Inventário do Chef" styleClass="titulo-principal" style="-fx-font-size: 22px;" />
-                <Label text="Janela independente (Stage Separado) - Gerencie seus itens e consumíveis." styleClass="subtitulo" />
+                <ImageView fitHeight="45.0" fitWidth="45.0" preserveRatio="true">
+                    <image>
+                        <Image url="@assets/item_faca.png" />
+                    </image>
+                </ImageView>
+                <VBox spacing="3.0">
+                    <Label text="📦 Despensa e Inventário do Chef" styleClass="titulo-principal" style="-fx-font-size: 22px;" />
+                    <Label text="Janela independente (Stage Separado) - Itens e consumíveis adquiridos." styleClass="subtitulo" />
+                </VBox>
             </children>
-        </VBox>
+        </HBox>
     </top>
 
     <center>
@@ -34,10 +43,10 @@
             <children>
                 <TableView fx:id="tabelaInventario" VBox.vgrow="ALWAYS">
                     <columns>
-                        <TableColumn fx:id="colNome" text="Item" prefWidth="170.0" />
+                        <TableColumn fx:id="colNome" text="Item" prefWidth="180.0" />
                         <TableColumn fx:id="colTipo" text="Tipo" prefWidth="110.0" />
                         <TableColumn fx:id="colQuantidade" text="Qtd." prefWidth="70.0" />
-                        <TableColumn fx:id="colDescricao" text="Efeito / Descrição" prefWidth="250.0" />
+                        <TableColumn fx:id="colDescricao" text="Efeito / Descrição" prefWidth="270.0" />
                     </columns>
                 </TableView>
                 <Label fx:id="lblStatusInventario" text="Selecione um item para utilizar durante a rodada."

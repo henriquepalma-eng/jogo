@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -12,7 +14,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.mycompany.mavenproject1.controller.LojaController"
-            prefHeight="680.0" prefWidth="950.0" styleClass="root">
+            prefHeight="700.0" prefWidth="980.0" styleClass="root">
     
     <top>
         <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="card-pane">
@@ -20,12 +22,17 @@
                 <Insets bottom="15.0" left="20.0" right="20.0" top="20.0" />
             </BorderPane.margin>
             <children>
-                <VBox spacing="4.0">
+                <VBox spacing="2.0">
                     <Label text="🛒 Mercado de Suprimentos do Chef" styleClass="titulo-principal" style="-fx-font-size: 24px;" />
                     <Label text="Adquira consumíveis e utensílios usando as moedas obtidas nos turnos de trabalho." styleClass="subtitulo" />
                 </VBox>
                 <Region HBox.hgrow="ALWAYS" />
-                <Label text="💰 Suas Moedas:" styleClass="label-destaque" />
+                <ImageView fitHeight="32.0" fitWidth="32.0" preserveRatio="true">
+                    <image>
+                        <Image url="@assets/moeda.png" />
+                    </image>
+                </ImageView>
+                <Label text="Suas Moedas:" styleClass="label-destaque" />
                 <Label fx:id="lblMoedasDisponiveis" text="0" styleClass="label-moedas" style="-fx-font-size: 22px;" />
             </children>
         </HBox>
@@ -37,12 +44,39 @@
                 <Insets bottom="15.0" left="20.0" right="20.0" />
             </BorderPane.margin>
             <children>
+                <!-- Vitrine em Destaque dos Itens Especiais -->
+                <HBox spacing="15.0" alignment="CENTER">
+                    <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="card-cliente" HBox.hgrow="ALWAYS">
+                        <ImageView fitHeight="50.0" fitWidth="50.0" preserveRatio="true">
+                            <image>
+                                <Image url="@assets/item_tempero.png" />
+                            </image>
+                        </ImageView>
+                        <VBox spacing="2.0">
+                            <Label text="Tempero Gourmet Dourado" styleClass="label-destaque" style="-fx-font-size: 14px;" />
+                            <Label text="Rende 2x mais moedas e reputação no próximo prato" style="-fx-text-fill: #ffa502; -fx-font-size: 11px;" />
+                        </VBox>
+                    </HBox>
+
+                    <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="card-cliente" HBox.hgrow="ALWAYS">
+                        <ImageView fitHeight="50.0" fitWidth="50.0" preserveRatio="true">
+                            <image>
+                                <Image url="@assets/item_faca.png" />
+                            </image>
+                        </ImageView>
+                        <VBox spacing="2.0">
+                            <Label text="Faca de Prata do Chef" styleClass="label-destaque" style="-fx-font-size: 14px;" />
+                            <Label text="Equipamento passivo: máxima precisão de preparo" style="-fx-text-fill: #a4b0be; -fx-font-size: 11px;" />
+                        </VBox>
+                    </HBox>
+                </HBox>
+
                 <TableView fx:id="tabelaLoja" VBox.vgrow="ALWAYS">
                     <columns>
                         <TableColumn fx:id="colNome" text="Produto" prefWidth="220.0" />
                         <TableColumn fx:id="colTipo" text="Categoria" prefWidth="130.0" />
                         <TableColumn fx:id="colPreco" text="Preço (Moedas)" prefWidth="140.0" />
-                        <TableColumn fx:id="colDescricao" text="Efeito e Vantagem Tática" prefWidth="400.0" />
+                        <TableColumn fx:id="colDescricao" text="Efeito e Vantagem Tática" prefWidth="430.0" />
                     </columns>
                 </TableView>
                 <Label fx:id="lblStatusLoja" text="Selecione um item da vitrine e clique em Comprar Produto."

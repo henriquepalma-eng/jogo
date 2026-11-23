@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -13,7 +15,7 @@
 
 <StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
            fx:controller="com.mycompany.mavenproject1.controller.BossController"
-           prefHeight="680.0" prefWidth="950.0" styleClass="root">
+           prefHeight="700.0" prefWidth="980.0" styleClass="bg-boss">
 
     <BorderPane>
         <!-- Topo da Batalha do Boss -->
@@ -23,6 +25,11 @@
                     <Insets bottom="10.0" left="15.0" right="15.0" top="15.0" />
                 </BorderPane.margin>
                 <children>
+                    <ImageView fitHeight="36.0" fitWidth="36.0" preserveRatio="true">
+                        <image>
+                            <Image url="@assets/vitoria_boss.png" />
+                        </image>
+                    </ImageView>
                     <Label text="👑 DESAFIO FINAL: O CRÍTICO GASTRONÔMICO" styleClass="titulo-principal" style="-fx-font-size: 22px; -fx-text-fill: #e67e22;" />
                     <Region HBox.hgrow="ALWAYS" />
                     <Label text="⏱️ Tempo Restante:" styleClass="label-destaque" />
@@ -39,18 +46,26 @@
                     <Insets bottom="10.0" left="15.0" right="15.0" />
                 </BorderPane.margin>
                 <children>
-                    <!-- Cartão do Boss / Anton Gourmet -->
+                    <!-- Cartão do Boss / Anton Gourmet com Imagem do Crítico -->
                     <VBox spacing="8.0" styleClass="card-cliente" style="-fx-border-color: #e67e22; -fx-border-width: 2px;">
                         <HBox alignment="CENTER_LEFT" spacing="15.0">
-                            <Label text="🧐 Anton Gourmet (Crítico Michelin)" styleClass="titulo-principal" style="-fx-font-size: 18px;" />
+                            <ImageView fitHeight="60.0" fitWidth="60.0" preserveRatio="true">
+                                <image>
+                                    <Image url="@assets/boss.png" />
+                                </image>
+                            </ImageView>
+                            <VBox spacing="2.0">
+                                <Label text="🧐 Anton Gourmet (Crítico Michelin)" styleClass="titulo-principal" style="-fx-font-size: 19px;" />
+                                <Label fx:id="lblMensagemCritico" text="O Crítico aguarda em silêncio..." style="-fx-text-fill: #eccc68; -fx-font-weight: bold;" />
+                            </VBox>
                             <Region HBox.hgrow="ALWAYS" />
-                            <Label fx:id="lblFaseBoss" text="ETAPA 1 DE 3: ENTRADA" style="-fx-text-fill: #ffa502; -fx-font-weight: bold;" />
+                            <Label fx:id="lblFaseBoss" text="ETAPA 1 DE 3: ENTRADA" style="-fx-text-fill: #ffa502; -fx-font-weight: bold; -fx-font-size: 16px;" />
                         </HBox>
+                        
                         <Label fx:id="lblNomePratoCritico" text="1. Salada Gourmet Real" styleClass="label-destaque" style="-fx-font-size: 16px; -fx-text-fill: #2ed573;" />
                         <Label fx:id="lblIngredientesCritico" text="Ingredientes: Alface + Tomate + Queijo + Molho" style="-fx-text-fill: #ced6e0; -fx-font-size: 14px;" />
                         <Label text="Paciência do Crítico:" style="-fx-text-fill: #a4b0be; -fx-font-size: 12px;" />
                         <ProgressBar fx:id="barPacienciaBoss" prefHeight="20.0" progress="1.0" maxWidth="Infinity" />
-                        <Label fx:id="lblMensagemCritico" text="O Crítico aguarda em silêncio..." style="-fx-text-fill: #eccc68; -fx-font-weight: bold;" />
                     </VBox>
 
                     <!-- Bancada de Preparo para o Boss -->
@@ -59,21 +74,21 @@
                         <VBox spacing="10.0" styleClass="card-pane" HBox.hgrow="ALWAYS">
                             <Label text="🥩 Selecione os Ingredientes Especiais:" styleClass="label-destaque" />
                             <HBox spacing="10.0" alignment="CENTER">
-                                <Button text="Pão" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="105.0" prefHeight="45.0" />
-                                <Button text="Hambúrguer" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="105.0" prefHeight="45.0" />
-                                <Button text="Queijo" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="105.0" prefHeight="45.0" />
-                                <Button text="Alface" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="105.0" prefHeight="45.0" />
+                                <Button text="Pão" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="110.0" prefHeight="45.0" />
+                                <Button text="Hambúrguer" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="110.0" prefHeight="45.0" />
+                                <Button text="Queijo" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="110.0" prefHeight="45.0" />
+                                <Button text="Alface" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="110.0" prefHeight="45.0" />
                             </HBox>
                             <HBox spacing="10.0" alignment="CENTER">
-                                <Button text="Tomate" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="105.0" prefHeight="45.0" />
-                                <Button text="Molho" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="105.0" prefHeight="45.0" />
-                                <Button text="Batata Frita" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="105.0" prefHeight="45.0" />
-                                <Button text="Refrigerante" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="105.0" prefHeight="45.0" />
+                                <Button text="Tomate" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="110.0" prefHeight="45.0" />
+                                <Button text="Molho" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="110.0" prefHeight="45.0" />
+                                <Button text="Batata Frita" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="110.0" prefHeight="45.0" />
+                                <Button text="Refrigerante" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="110.0" prefHeight="45.0" />
                             </HBox>
                         </VBox>
 
                         <!-- Montagem e Envio -->
-                        <VBox spacing="10.0" styleClass="card-pane" prefWidth="320.0">
+                        <VBox spacing="10.0" styleClass="card-pane" prefWidth="330.0">
                             <Label text="🍽️ Prato do Crítico:" styleClass="label-destaque" />
                             <ListView fx:id="listPratoMontado" prefHeight="140.0" />
                             <HBox spacing="10.0">
@@ -87,18 +102,28 @@
         </center>
     </BorderPane>
 
-    <!-- Overlay Vitória Boss -->
+    <!-- Overlay Vitória Boss com Imagem de Campeão -->
     <VBox fx:id="painelVitoria" alignment="CENTER" spacing="15.0" visible="false"
-          style="-fx-background-color: rgba(30, 39, 46, 0.96); -fx-padding: 30px;">
+          style="-fx-background-color: rgba(20, 24, 30, 0.96); -fx-padding: 30px;">
+        <ImageView fitHeight="150.0" fitWidth="150.0" preserveRatio="true">
+            <image>
+                <Image url="@assets/vitoria_boss.png" />
+            </image>
+        </ImageView>
         <Label text="🏆 VOCÊ CONQUISTOU A ESTRELA MICHELIN!" styleClass="titulo-principal" style="-fx-text-fill: #ffa502;" />
         <Label text="O Crítico Anton Gourmet ficou impressionado com a perfeição dos seus pratos!" styleClass="subtitulo" />
         <Label text="+2500 Pontos de Prestígio | +500 Moedas de Ouro" styleClass="label-reputacao" style="-fx-font-size: 20px;" />
         <Button text="🏠 Voltar ao Menu Principal com Glória" onAction="#voltarAoMenu" styleClass="btn-sucesso" prefWidth="320.0" prefHeight="45.0" />
     </VBox>
 
-    <!-- Overlay Derrota Boss -->
+    <!-- Overlay Derrota Boss com Imagem de Reprovado -->
     <VBox fx:id="painelDerrota" alignment="CENTER" spacing="15.0" visible="false"
-          style="-fx-background-color: rgba(30, 39, 46, 0.96); -fx-padding: 30px;">
+          style="-fx-background-color: rgba(20, 24, 30, 0.96); -fx-padding: 30px;">
+        <ImageView fitHeight="140.0" fitWidth="140.0" preserveRatio="true">
+            <image>
+                <Image url="@assets/derrota_boss.png" />
+            </image>
+        </ImageView>
         <Label text="❌ O CRÍTICO REPROVOU O RESTAURANTE!" styleClass="titulo-principal" style="-fx-text-fill: #ff4757;" />
         <Label text="O tempo esgotou antes de você entregar os pratos exigidos." styleClass="subtitulo" />
         <HBox spacing="15.0" alignment="CENTER">

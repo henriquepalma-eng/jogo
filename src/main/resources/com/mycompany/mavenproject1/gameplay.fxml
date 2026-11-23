@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -13,51 +15,68 @@
 
 <StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
            fx:controller="com.mycompany.mavenproject1.controller.GameplayController"
-           prefHeight="680.0" prefWidth="950.0" styleClass="root">
+           prefHeight="700.0" prefWidth="980.0" styleClass="bg-gameplay">
 
     <BorderPane>
         <!-- Topo da Partida / Run -->
         <top>
-            <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="card-pane">
+            <HBox alignment="CENTER_LEFT" spacing="16.0" styleClass="card-pane">
                 <BorderPane.margin>
                     <Insets bottom="10.0" left="15.0" right="15.0" top="15.0" />
                 </BorderPane.margin>
                 <children>
-                    <Label text="⏱️ Tempo Restante:" styleClass="label-destaque" />
+                    <Label text="⏱️ Tempo:" styleClass="label-destaque" />
                     <Label fx:id="lblTempo" text="60s" styleClass="label-destaque" style="-fx-text-fill: #ff4757; -fx-font-size: 20px;" />
 
-                    <Label text="⭐ Pontuação:" styleClass="label-destaque" />
+                    <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
+                        <image>
+                            <Image url="@assets/estrela.png" />
+                        </image>
+                    </ImageView>
+                    <Label text="Pontos:" styleClass="label-destaque" />
                     <Label fx:id="lblPontuacao" text="0" styleClass="label-reputacao" />
 
-                    <Label text="💰 Moedas da Run:" styleClass="label-destaque" />
+                    <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
+                        <image>
+                            <Image url="@assets/moeda.png" />
+                        </image>
+                    </ImageView>
+                    <Label text="Moedas:" styleClass="label-destaque" />
                     <Label fx:id="lblMoedasRun" text="0" styleClass="label-moedas" />
 
                     <Label text="🧑‍🤝‍🧑 Atendidos:" styleClass="label-destaque" />
                     <Label fx:id="lblClientesAtendidos" text="0" styleClass="label-destaque" style="-fx-text-fill: #1e90ff;" />
 
                     <Region HBox.hgrow="ALWAYS" />
-                    <Button text="📦 Abrir Despensa (Stage)" onAction="#abrirInventario" styleClass="btn-info" />
-                    <Button text="↩ Desistir / Menu" onAction="#voltarAoMenu" style="-fx-background-color: #57606f;" />
+                    <Button text="📦 Despensa (Stage)" onAction="#abrirInventario" styleClass="btn-info" />
+                    <Button text="↩ Desistir" onAction="#voltarAoMenu" style="-fx-background-color: #57606f;" />
                 </children>
             </HBox>
         </top>
 
         <!-- Centro: Clientes + Bancada de Trabalho -->
         <center>
-            <VBox spacing="15.0">
+            <VBox spacing="12.0">
                 <BorderPane.margin>
                     <Insets bottom="10.0" left="15.0" right="15.0" top="5.0" />
                 </BorderPane.margin>
                 <children>
                     <!-- Status Informativo -->
                     <Label fx:id="lblMensagemStatus" text="Atenda os clientes antes que a barra de paciência termine!"
-                           style="-fx-text-fill: #eccc68; -fx-font-size: 14px; -fx-font-weight: bold;" alignment="CENTER" maxWidth="Infinity" />
+                           style="-fx-text-fill: #eccc68; -fx-font-size: 15px; -fx-font-weight: bold; -fx-effect: dropshadow(one-pass-box, black, 6, 0, 0, 2);" alignment="CENTER" maxWidth="Infinity" />
 
                     <!-- Fila de Clientes no Balcão (3 Slots) -->
-                    <HBox spacing="15.0" alignment="CENTER" prefHeight="180.0">
+                    <HBox spacing="15.0" alignment="CENTER" prefHeight="200.0">
                         <!-- Slot 1 -->
-                        <VBox fx:id="boxCliente1" spacing="8.0" styleClass="card-cliente" HBox.hgrow="ALWAYS" alignment="CENTER">
-                            <Label fx:id="lblNomeCliente1" text="Cliente 1" styleClass="label-destaque" />
+                        <VBox fx:id="boxCliente1" spacing="6.0" styleClass="card-cliente" HBox.hgrow="ALWAYS" alignment="CENTER">
+                            <HBox alignment="CENTER" spacing="8.0">
+                                <ImageView fitHeight="36.0" fitWidth="36.0" preserveRatio="true">
+                                    <image>
+                                        <Image url="@assets/cliente_apressado.png" />
+                                    </image>
+                                </ImageView>
+                                <Label fx:id="lblNomeCliente1" text="Cliente 1" styleClass="label-destaque" />
+                            </HBox>
                             <Label fx:id="lblPedidoCliente1" text="Carregando pedido..." style="-fx-text-fill: #ced6e0; -fx-alignment: center;" wrapText="true" />
                             <Label text="Paciência:" style="-fx-text-fill: #a4b0be; -fx-font-size: 11px;" />
                             <ProgressBar fx:id="barPaciencia1" prefWidth="240.0" prefHeight="16.0" progress="1.0" />
@@ -65,8 +84,15 @@
                         </VBox>
 
                         <!-- Slot 2 -->
-                        <VBox fx:id="boxCliente2" spacing="8.0" styleClass="card-cliente" HBox.hgrow="ALWAYS" alignment="CENTER">
-                            <Label fx:id="lblNomeCliente2" text="Cliente 2" styleClass="label-destaque" />
+                        <VBox fx:id="boxCliente2" spacing="6.0" styleClass="card-cliente" HBox.hgrow="ALWAYS" alignment="CENTER">
+                            <HBox alignment="CENTER" spacing="8.0">
+                                <ImageView fitHeight="36.0" fitWidth="36.0" preserveRatio="true">
+                                    <image>
+                                        <Image url="@assets/cliente_apressado.png" />
+                                    </image>
+                                </ImageView>
+                                <Label fx:id="lblNomeCliente2" text="Cliente 2" styleClass="label-destaque" />
+                            </HBox>
                             <Label fx:id="lblPedidoCliente2" text="Carregando pedido..." style="-fx-text-fill: #ced6e0; -fx-alignment: center;" wrapText="true" />
                             <Label text="Paciência:" style="-fx-text-fill: #a4b0be; -fx-font-size: 11px;" />
                             <ProgressBar fx:id="barPaciencia2" prefWidth="240.0" prefHeight="16.0" progress="1.0" />
@@ -74,8 +100,15 @@
                         </VBox>
 
                         <!-- Slot 3 -->
-                        <VBox fx:id="boxCliente3" spacing="8.0" styleClass="card-cliente" HBox.hgrow="ALWAYS" alignment="CENTER">
-                            <Label fx:id="lblNomeCliente3" text="Cliente 3" styleClass="label-destaque" />
+                        <VBox fx:id="boxCliente3" spacing="6.0" styleClass="card-cliente" HBox.hgrow="ALWAYS" alignment="CENTER">
+                            <HBox alignment="CENTER" spacing="8.0">
+                                <ImageView fitHeight="36.0" fitWidth="36.0" preserveRatio="true">
+                                    <image>
+                                        <Image url="@assets/cliente_apressado.png" />
+                                    </image>
+                                </ImageView>
+                                <Label fx:id="lblNomeCliente3" text="Cliente 3" styleClass="label-destaque" />
+                            </HBox>
                             <Label fx:id="lblPedidoCliente3" text="Carregando pedido..." style="-fx-text-fill: #ced6e0; -fx-alignment: center;" wrapText="true" />
                             <Label text="Paciência:" style="-fx-text-fill: #a4b0be; -fx-font-size: 11px;" />
                             <ProgressBar fx:id="barPaciencia3" prefWidth="240.0" prefHeight="16.0" progress="1.0" />
@@ -89,22 +122,29 @@
                         <VBox spacing="10.0" styleClass="card-pane" HBox.hgrow="ALWAYS">
                             <Label text="🥩 Bancada de Ingredientes (Clique para adicionar ao prato):" styleClass="label-destaque" />
                             <HBox spacing="10.0" alignment="CENTER">
-                                <Button text="Pão" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="105.0" prefHeight="45.0" />
-                                <Button text="Hambúrguer" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="105.0" prefHeight="45.0" />
-                                <Button text="Queijo" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="105.0" prefHeight="45.0" />
-                                <Button text="Alface" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="105.0" prefHeight="45.0" />
+                                <Button text="Pão" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="110.0" prefHeight="45.0" />
+                                <Button text="Hambúrguer" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="110.0" prefHeight="45.0" />
+                                <Button text="Queijo" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="110.0" prefHeight="45.0" />
+                                <Button text="Alface" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="110.0" prefHeight="45.0" />
                             </HBox>
                             <HBox spacing="10.0" alignment="CENTER">
-                                <Button text="Tomate" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="105.0" prefHeight="45.0" />
-                                <Button text="Molho" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="105.0" prefHeight="45.0" />
-                                <Button text="Batata Frita" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="105.0" prefHeight="45.0" />
-                                <Button text="Refrigerante" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="105.0" prefHeight="45.0" />
+                                <Button text="Tomate" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="110.0" prefHeight="45.0" />
+                                <Button text="Molho" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="110.0" prefHeight="45.0" />
+                                <Button text="Batata Frita" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="110.0" prefHeight="45.0" />
+                                <Button text="Refrigerante" onAction="#adicionarIngrediente" styleClass="btn-ingrediente" prefWidth="110.0" prefHeight="45.0" />
                             </HBox>
                         </VBox>
 
                         <!-- Prato em Montagem -->
-                        <VBox spacing="10.0" styleClass="card-pane" prefWidth="300.0">
-                            <Label text="🍳 Prato Sendo Montado:" styleClass="label-destaque" />
+                        <VBox spacing="8.0" styleClass="card-pane" prefWidth="320.0" alignment="CENTER">
+                            <HBox alignment="CENTER" spacing="8.0">
+                                <ImageView fitHeight="28.0" fitWidth="28.0" preserveRatio="true">
+                                    <image>
+                                        <Image url="@assets/prato_vazio.png" />
+                                    </image>
+                                </ImageView>
+                                <Label text="Prato em Montagem:" styleClass="label-destaque" />
+                            </HBox>
                             <ListView fx:id="listPratoMontado" prefHeight="130.0" />
                             <Button fx:id="btnLimparPrato" text="🗑️ Descartar / Limpar Prato" onAction="#limparPrato"
                                     styleClass="btn-primario" maxWidth="Infinity" />
@@ -115,11 +155,16 @@
         </center>
     </BorderPane>
 
-    <!-- Overlay Modal de Fim de Run -->
-    <VBox fx:id="painelFimRun" alignment="CENTER" spacing="18.0" visible="false"
-          style="-fx-background-color: rgba(30, 39, 46, 0.94); -fx-padding: 30px;">
+    <!-- Overlay Modal de Fim de Run com Banner de Vitória -->
+    <VBox fx:id="painelFimRun" alignment="CENTER" spacing="15.0" visible="false"
+          style="-fx-background-color: rgba(20, 24, 30, 0.95); -fx-padding: 25px;">
+        <ImageView fitHeight="120.0" fitWidth="400.0" preserveRatio="true">
+            <image>
+                <Image url="@assets/vitoria_turno.png" />
+            </image>
+        </ImageView>
         <Label fx:id="lblResumoTitulo" text="FIM DO TURNO!" styleClass="titulo-principal" />
-        <VBox alignment="CENTER" spacing="10.0" styleClass="card-pane" maxWidth="450.0">
+        <VBox alignment="CENTER" spacing="8.0" styleClass="card-pane" maxWidth="450.0">
             <Label fx:id="lblResumoPontos" text="Pontuação: 0" styleClass="label-reputacao" style="-fx-font-size: 18px;" />
             <Label fx:id="lblResumoMoedas" text="Moedas Ganhas: 0" styleClass="label-moedas" style="-fx-font-size: 18px;" />
             <Label fx:id="lblResumoClientes" text="Clientes Atendidos: 0" styleClass="label-destaque" style="-fx-font-size: 18px;" />
